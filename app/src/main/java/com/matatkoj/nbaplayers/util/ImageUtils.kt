@@ -2,7 +2,6 @@ package com.matatkoj.nbaplayers.util
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
@@ -33,7 +32,7 @@ fun loadPicture(url: String, @DrawableRes defaultImage: Int): MutableState<Bitma
 
     val bitmap = BitmapFactory.decodeResource(
         LocalContext.current.resources,
-        R.mipmap.ic_launcher_foreground
+        defaultImage
     )
 
     val bitmapState: MutableState<Bitmap> = remember { mutableStateOf(bitmap) }

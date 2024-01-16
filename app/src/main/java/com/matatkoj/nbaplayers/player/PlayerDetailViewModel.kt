@@ -1,5 +1,6 @@
 package com.matatkoj.nbaplayers.player
 
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.SavedStateHandle
 import com.jakewharton.rxrelay3.BehaviorRelay
 import com.jakewharton.rxrelay3.PublishRelay
@@ -25,6 +26,7 @@ class PlayerDetailViewModel @Inject constructor(
     private val playerId: Int get() = state[PLAYER_ID_KEY]
         ?: throw IllegalStateException("Missing player id argument!")
 
+    @Immutable
     sealed interface PlayerDetails {
         data object Loading: PlayerDetails
         data class Success(val details: Player): PlayerDetails

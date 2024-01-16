@@ -1,5 +1,6 @@
 package com.matatkoj.nbaplayers.team
 
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.SavedStateHandle
 import com.jakewharton.rxrelay3.BehaviorRelay
 import com.jakewharton.rxrelay3.PublishRelay
@@ -25,6 +26,7 @@ class TeamDetailViewModel @Inject constructor(
     private val teamId: Int get() = savedStateHandle[TEAM_ID_KEY]
         ?: throw IllegalStateException("Missing team id argument!")
 
+    @Immutable
     sealed interface TeamDetails {
         data object Loading: TeamDetails
         data class Success(val details: Team): TeamDetails

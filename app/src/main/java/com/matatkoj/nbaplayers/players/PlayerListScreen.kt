@@ -1,7 +1,6 @@
 package com.matatkoj.nbaplayers.players
 
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -63,10 +62,6 @@ fun PlayerListScreen(
             .subscribeAsState(initial = viewModel.getPagerItemBlocking())
 
         val lazyColumnState = rememberLazyListState()
-
-        Log.i("maty", "players: $players")
-        Log.i("maty", "pager item: $pagerItem")
-        Log.i("maty", "lazy column state: $lazyColumnState")
 
         PlayersListLayout(
             players = players,
@@ -146,7 +141,6 @@ private fun PlayersDataLayout(
     onItemClicked: (Int) -> Unit,
     onRetryClicked: () -> Unit
 ) {
-    Log.i("maty", "players data layout")
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(vertical = 8.dp),

@@ -1,6 +1,5 @@
 package com.matatkoj.nbaplayers.players
 
-import android.util.Log
 import androidx.compose.runtime.Immutable
 import com.jakewharton.rxrelay3.BehaviorRelay
 import com.jakewharton.rxrelay3.PublishRelay
@@ -15,9 +14,7 @@ import io.reactivex.rxjava3.core.BackpressureStrategy
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.PersistentList
-import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toPersistentList
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -31,6 +28,7 @@ class PlayerListViewModel @Inject constructor(
         private const val FIRST_PAGE_NUMBER = 1
     }
 
+    @Immutable
     sealed interface Players {
         data object Loading: Players
         data class Success(val playerList: PersistentList<Player>): Players
