@@ -7,6 +7,6 @@ fun <T> BehaviorRelay<T>.valueOrNull(): T? {
 }
 
 fun <T> BehaviorRelay<T>.requireValue(): T {
-    return this.value
+    return valueOrNull()
         ?: throw IllegalStateException("Missing required value in BehaviorRelay!")
 }

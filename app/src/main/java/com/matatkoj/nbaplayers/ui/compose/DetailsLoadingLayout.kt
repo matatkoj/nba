@@ -41,7 +41,7 @@ fun DetailsLoadingLayout(visible: Boolean) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(120.dp)
+                    .height(240.dp)
                     .background(nbaShimmerBrush(), RoundedCornerShape(10.dp))
             )
         }

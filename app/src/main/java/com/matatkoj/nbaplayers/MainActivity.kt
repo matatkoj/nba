@@ -3,18 +3,12 @@ package com.matatkoj.nbaplayers
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedContentTransitionScope
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -25,10 +19,10 @@ import com.matatkoj.nbaplayers.player.PlayerDetailScreen
 import com.matatkoj.nbaplayers.players.PlayerListScreen
 import com.matatkoj.nbaplayers.team.TeamDetailScreen
 import com.matatkoj.nbaplayers.ui.theme.NBAPlayersTheme
-import com.matatkoj.nbaplayers.ui.transition.enterSlideFromLeftTransition
-import com.matatkoj.nbaplayers.ui.transition.enterSlideFromRightTransition
-import com.matatkoj.nbaplayers.ui.transition.exitSlideToLeftTransition
-import com.matatkoj.nbaplayers.ui.transition.exitSlideToRightTransition
+import com.matatkoj.nbaplayers.ui.transition.enterTransition
+import com.matatkoj.nbaplayers.ui.transition.exitTransition
+import com.matatkoj.nbaplayers.ui.transition.popEnterTransition
+import com.matatkoj.nbaplayers.ui.transition.popExitTransition
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,30 +40,10 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(paddingValues),
                         navController = navController,
                         startDestination = NbaNavigation.PlayerList.route,
-                        enterTransition = {
-                            slideIntoContainer(
-                                AnimatedContentTransitionScope.SlideDirection.Left,
-                                animationSpec = tween(300)
-                            )
-                        },
-                        exitTransition = {
-                            slideOutOfContainer(
-                                AnimatedContentTransitionScope.SlideDirection.Left,
-                                animationSpec = tween(300)
-                            )
-                        },
-                        popEnterTransition = {
-                            slideIntoContainer(
-                                AnimatedContentTransitionScope.SlideDirection.Right,
-                                animationSpec = tween(300)
-                            )
-                        },
-                        popExitTransition = {
-                            slideOutOfContainer(
-                                AnimatedContentTransitionScope.SlideDirection.Right,
-                                animationSpec = tween(300)
-                            )
-                        }
+                        enterTransition = { enterTransition() },
+                        exitTransition = { exitTransition() },
+                        popEnterTransition = { popEnterTransition() },
+                        popExitTransition = { popExitTransition() }
                     ) {
                         composable(
                             route = NbaNavigation.PlayerList.route

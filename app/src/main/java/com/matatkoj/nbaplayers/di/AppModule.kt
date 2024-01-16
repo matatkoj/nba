@@ -1,5 +1,6 @@
 package com.matatkoj.nbaplayers.di
 
+import com.matatkoj.nbaplayers.Constants
 import com.matatkoj.nbaplayers.data.api.NbaApi
 import com.matatkoj.nbaplayers.data.repository.NbaRepository
 import dagger.Module
@@ -29,7 +30,7 @@ class AppModule {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .baseUrl("https://www.balldontlie.io/api/v1/")
+            .baseUrl(Constants.API_URL)
             .build()
             .create(NbaApi::class.java)
     }
