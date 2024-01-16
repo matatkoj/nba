@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="players_list_title">NBA Players</string>
+
+    <string name="players_list_error">Failed to load Players list!</string>
+    <string name="player_detail_error">Failed to load Player detail!</string>
+    <string name="team_detail_error">Failed to load Team detail!</string>
+    <string name="retry_button">Retry</string>
+
+    <string name="player_detail_title">#%1$d - %2$s %3$s</string>
+    <string name="player_detail_physical_info">Physical info</string>
+    <string name="player_detail_height_ft">%1$d ft</string>
+    <string name="player_detail_height_in">%1$d in</string>
+    <string name="player_detail_height">Height</string>
+    <string name="player_detail_weigh_pounds">%1$d pounds</string>
+    <string name="player_detail_weight">Weight</string>
+    <string name="player_detail_league_info">League info</string>
+    <string name="player_detail_team">Team</string>
+    <string name="player_detail_position">Position</string>
+
+    <string name="team_detail_title">#%1$d - %2$s</string>
+    <string name="team_detail_info">Info</string>
+    <string name="team_detail_full_name">Full Name</string>
+    <string name="team_detail_abbreviation">Abbreviation</string>
+    <string name="team_detail_city">City</string>
+    <string name="team_detail_conference">Conference</string>
+    <string name="team_detail_division">Division</string>
+</resources>
